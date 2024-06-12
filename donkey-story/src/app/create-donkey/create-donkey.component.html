@@ -1,0 +1,24 @@
+<div class="container mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">Ajouter un Donkey</h2>
+    <form [formGroup]="donkeyForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <div class="form-group">
+        <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
+        <input type="text" id="name" class="form-control mt-1 block w-full" formControlName="name" [ngClass]="{'border-red-500': f['name'].invalid && f['name'].touched}">
+      </div>
+      <div class="form-group">
+        <label for="origin" class="block text-sm font-medium text-gray-700">Origine</label>
+        <input type="text" id="origin" class="form-control mt-1 block w-full" formControlName="origin" [ngClass]="{'border-red-500': f['origin'].invalid && f['origin'].touched}">
+      </div>
+      <div class="form-group">
+        <label for="birthDate" class="block text-sm font-medium text-gray-700">Date de naissance</label>
+        <input type="date" id="birthDate" class="form-control mt-1 block w-full" formControlName="birthDate" [ngClass]="{'border-red-500': f['birthDate'].invalid && f['birthDate'].touched}">
+      </div>
+      <div class="form-group">
+        <label for="imageUrl" class="block text-sm font-medium text-gray-700">URL de l'image</label>
+        <input type="text" id="imageUrl" class="form-control mt-1 block w-full" formControlName="imageUrl" [ngClass]="{'border-red-500': f['imageUrl'].invalid && f['imageUrl'].touched}">
+      </div>
+      <button type="submit" class="btn btn-primary mt-4" [disabled]="donkeyForm.invalid">Ajouter</button>
+    </form>
+  </div>
+  
+  

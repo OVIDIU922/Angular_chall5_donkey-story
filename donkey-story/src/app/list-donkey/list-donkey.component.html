@@ -1,0 +1,22 @@
+<div class="container mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">Liste des Donkeys</h2>
+    <div class="flex">
+      <div class="w-2/3">
+        <div *ngFor="let donkey of donkeys" class="card mb-3 cursor-pointer" (mouseenter)="showDetails(donkey)" (mouseleave)="hideDetails()">
+          <img [src]="donkey.imageUrl" class="card-img-top h-48 object-cover" alt="{{donkey.name}}">
+          <div class="card-body">
+            <h5 class="card-title text-lg font-bold">{{donkey.name}}</h5>
+            <button class="btn btn-success mt-2" (click)="adoptDonkey(donkey)">Adopter</button>
+          </div>
+        </div>
+      </div>
+      <div class="w-1/3 ml-4" *ngIf="selectedDonkey">
+        <h3 class="text-xl font-bold mb-2">Détails du Donkey</h3>
+        <p><strong>Nom :</strong> {{selectedDonkey.name}}</p>
+        <p><strong>Origine :</strong> {{selectedDonkey.origin}}</p>
+        <p><strong>Date de naissance :</strong> {{selectedDonkey.birthDate | date}}</p>
+        <img [src]="selectedDonkey.imageUrl" class="img-fluid mt-2" alt="{{selectedDonkey.name}}">
+      </div>
+    </div>
+  </div>
+  
